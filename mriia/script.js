@@ -1,30 +1,43 @@
-console.log("Mriia Website Loaded - Buttons Optimized");
+console.log("Mriia Website Loaded - Premium Animations");
 
-// Prevent default on touch for better responsiveness
-document.addEventListener('touchstart', function() {}, {passive: true});
-
-// Make sure all buttons are clickable
-document.querySelectorAll('.btn, .float-btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        // Add active state for touch feedback
-        this.style.transform = 'scale(0.98)';
-        setTimeout(() => {
-            this.style.transform = '';
-        }, 150);
-    });
-});
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-            e.preventDefault();
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+// Scroll animations
+function handleScrollAnimations() {
+    const fadeElements = document.querySelectorAll('.fade-section, .video-card, .media-card, .section-title');
+    
+    fadeElements.forEach((el, index) => {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        if (rect.top <= windowHeight * 0.85) {
+            // Stagger delay
+            setTimeout(() => {
+                el.classList.add('show');
+            }, index * 60);
         }
+    });
+}
+
+// Initialize animations
+document.addEventListener('DOMContentLoaded', () => {
+    // Trigger initial animations
+    setTimeout(() => {
+        handleScrollAnimations();
+    }, 300);
+    
+    // Listen to scroll
+    window.addEventListener('scroll', handleScrollAnimations, { passive: true });
+    
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
 });

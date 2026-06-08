@@ -290,21 +290,14 @@ flex-wrap:wrap;
 .btn{
 
 padding:
-18px 36px;
+16px 34px;
 
-border-radius:50px;
+border-radius:40px;
 
 font-weight:600;
 
 transition:.35s;
-min-height: 56px;
-display: inline-flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-user-select: none;
--webkit-tap-highlight-color: rgba(201,168,106,0.3);
-touch-action: manipulation;
+
 }
 
 .btn-primary{
@@ -579,6 +572,51 @@ var(--shadow-hover);
 
 }
 
+/* Bigger centered play button */
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: .4s ease;
+}
+
+.video-card:hover .video-overlay {
+    background: rgba(0,0,0,0.2);
+}
+
+.play-button {
+    width: 110px;
+    height: 110px;
+    background: #ff0000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 40px rgba(255, 0, 0, 0.5);
+    transition: all .3s ease;
+    z-index: 3;
+}
+
+.play-button:hover {
+    transform: scale(1.15);
+    box-shadow: 0 20px 50px rgba(255, 0, 0, 0.6);
+}
+
+.play-button::after {
+    content: '';
+    display: block;
+    width: 0; 
+    height: 0; 
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 42px solid white;
+    margin-left: 8px;
+}
+
 .video-card video{
 
 width:100%;
@@ -823,21 +861,30 @@ scale(1.12);
 .fade-section{
 
 opacity:0;
-
-transform:
-translateY(60px);
-
-transition:
-1s ease;
+transform: translateY(60px);
+transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
 }
 
 .fade-section.show{
 
 opacity:1;
+transform: translateY(0);
 
-transform:none;
+}
 
+/* Staggered animation for cards */
+.video-grid .video-card,
+.gallery-grid .media-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.video-grid .video-card.show,
+.gallery-grid .media-card.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ===================================
@@ -934,21 +981,6 @@ font-size:40px;
 }
 
 @media(max-width:768px){
-
-.hero-buttons .btn {
-    padding: 18px 28px;
-    font-size: 17px;
-    min-height: 60px;
-    width: 100%;
-    max-width: 320px;
-}
-
-.float-btn {
-    width: 68px;
-    height: 68px;
-    font-size: 32px;
-}
-}
 
 header{
 

@@ -514,11 +514,19 @@
 
 	<div class="floating-buttons">
 
-		<a href="tel:+380664905754" class="float-btn" aria-label="Зателефонувати">
+		<div class="call-widget">
+			<div id="call-menu" class="call-menu" aria-hidden="true">
+				<p>Оберіть номер</p>
+				<a href="tel:+380664905754">📞 +38 (066) 490-57-54</a>
+				<a href="tel:+380952299587">📞 +38 (095) 229-95-87</a>
+			</div>
+
+		<button id="call-toggle" type="button" class="float-btn" aria-label="Показати номери телефону" aria-expanded="false" aria-controls="call-menu">
 
 			📞
 
-		</a>
+		</button>
+		</div>
 
 		<a href="https://www.instagram.com/banquethallmriia/" target="_blank" rel="noopener noreferrer" class="float-btn" aria-label="Відкрити Instagram">
 

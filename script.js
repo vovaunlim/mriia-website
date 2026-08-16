@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const bookingForm = document.getElementById('booking-form');
   const thankYouModal = document.getElementById('thank-you-modal');
   const thankYouHome = document.getElementById('thank-you-home');
+  const callToggle = document.getElementById('call-toggle');
+  const callMenu = document.getElementById('call-menu');
 
   let savedTheme = 'light';
   try { savedTheme = localStorage.getItem('theme') || 'light'; } catch (error) { /* private mode */ }
@@ -86,5 +88,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && thankYouModal.classList.contains('is-visible')) returnHome();
+    if (event.key === 'Escape') closeCallMenu();
+  });
+
+  function closeCallMenu() {
+    callMenu.classList.remove('is-visible');
+    callMenu.setAttribute('aria-hidden', 'true');
+    callToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  callToggle.addEventListener('click', () => {
+    const isOpen = callMenu.classList.toggle('is-visible');
+    callMenu.setAttribute('aria-hidden', String(!isOpen));
+    callToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.call-widget')) closeCallMenu();
   });
 });

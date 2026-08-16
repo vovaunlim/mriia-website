@@ -838,7 +838,18 @@ box-shadow:
 
 transition:.35s;
 
+border:0;
+
+cursor:pointer;
+
 }
+
+.call-widget{position:relative;}
+.call-menu{position:absolute;right:0;bottom:calc(100% + 14px);width:max-content;min-width:260px;padding:14px;border:1px solid rgba(201,168,106,.35);border-radius:18px;background:var(--card-bg);box-shadow:var(--shadow-hover);opacity:0;visibility:hidden;transform:translateY(10px) scale(.97);transition:.25s;}
+.call-menu.is-visible{opacity:1;visibility:visible;transform:none;}
+.call-menu p{padding:4px 10px 10px;color:var(--text);font-size:14px;font-weight:700;}
+.call-menu a{display:block;padding:11px 12px;border-radius:12px;color:var(--text);font-size:15px;font-weight:700;white-space:nowrap;transition:.2s;}
+.call-menu a:hover,.call-menu a:focus-visible{background:rgba(201,168,106,.16);color:var(--gold-dark);}
 
 .float-btn:hover{
 

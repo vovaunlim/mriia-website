@@ -686,6 +686,18 @@ opacity:.7;
 .booking-note.error a{color:inherit;text-decoration:underline;}
 .booking button:disabled{cursor:wait;opacity:.7;transform:none;}
 
+.submission-frame{position:absolute;width:1px;height:1px;border:0;opacity:0;pointer-events:none;}
+
+.thank-you-modal{position:fixed;inset:0;z-index:3000;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.68);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:.3s;}
+.thank-you-modal.is-visible{opacity:1;visibility:visible;}
+.thank-you-card{width:min(100%,520px);padding:clamp(32px,6vw,56px);text-align:center;border:1px solid rgba(201,168,106,.45);border-radius:30px;background:var(--card-bg);color:var(--text);box-shadow:0 30px 90px rgba(0,0,0,.35);transform:translateY(22px) scale(.96);transition:.35s;}
+.thank-you-modal.is-visible .thank-you-card{transform:none;}
+.thank-you-icon{display:grid;place-items:center;width:78px;height:78px;margin:0 auto 22px;border-radius:50%;background:var(--gold);color:#fff;font-size:42px;font-weight:700;}
+.thank-you-card h2{margin-bottom:14px;font-size:clamp(30px,5vw,42px);color:var(--dark);}
+.thank-you-card p{margin-bottom:28px;}
+.thank-you-card button{padding:14px 30px;border:0;border-radius:999px;background:var(--gold);color:#fff;font:inherit;font-weight:700;cursor:pointer;transition:.25s;}
+.thank-you-card button:hover{background:var(--gold-dark);transform:translateY(-2px);}
+
 /* ===================================
    CONTACTS
 =================================== */

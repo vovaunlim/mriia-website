@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const nav = document.getElementById('main-nav');
   const bookingForm = document.getElementById('booking-form');
+  const thankYouModal = document.getElementById('thank-you-modal');
+  const thankYouHome = document.getElementById('thank-you-home');
 
   let savedTheme = 'light';
   try { savedTheme = localStorage.getItem('theme') || 'light'; } catch (error) { /* private mode */ }
@@ -58,5 +60,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitButton = document.getElementById('booking-submit');
     submitButton.disabled = true;
     submitButton.textContent = 'Надсилаємо…';
+
+    window.setTimeout(() => {
+      bookingForm.reset();
+      submitButton.disabled = false;
+      submitButton.textContent = 'Надіслати заявку';
+      thankYouModal.classList.add('is-visible');
+      thankYouModal.setAttribute('aria-hidden', 'false');
+      thankYouHome.focus();
+
+      window.setTimeout(returnHome, 4000);
+    }, 900);
+  });
+
+  function returnHome() {
+    thankYouModal.classList.remove('is-visible');
+    thankYouModal.setAttribute('aria-hidden', 'true');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window.location.hash) history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+
+  thankYouHome.addEventListener('click', returnHome);
+  thankYouModal.addEventListener('click', (event) => {
+    if (event.target === thankYouModal) returnHome();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && thankYouModal.classList.contains('is-visible')) returnHome();
   });
 });

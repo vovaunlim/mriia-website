@@ -35,13 +35,13 @@
 
 	<header>
 
-		<div class="logo">
+		<a class="logo" href="#top" aria-label="Мрія — на головну">
 
 			МРІЯ
 
-		</div>
+		</a>
 
-		<nav>
+		<nav id="main-nav" aria-label="Головна навігація">
 
 			<a href="#about">
 				Про нас
@@ -69,6 +69,7 @@
 
 		</nav>
 
+		<button id="menu-toggle" class="menu-toggle" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
 		<button id="theme-toggle" class="theme-toggle" aria-label="Перемкнути тему">🌙</button>
 
 	</header>
@@ -76,14 +77,11 @@
 
 	<!-- HERO -->
 
-	<section class="hero">
+	<section id="top" class="hero">
 
 		
-<div class="hero-video">
-<iframe src="https://www.youtube.com/embed/kh61ndjhx_Y?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=kh61ndjhx_Y&amp;rel=0&amp;modestbranding=1" 
-        title="Hero Video" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        allowfullscreen></iframe>
+<div class="hero-video" aria-hidden="true">
+  <img src="assets/images/42.jpg" alt="">
 </div>
 
 
@@ -122,6 +120,8 @@
 					Переглянути галерею
 
 				</a>
+
+				<a href="#video-gallery" class="btn btn-video">▶ Дивитися відео</a>
 
 			</div>
 
@@ -183,7 +183,7 @@
 
 			<div class="about-image">
 
-				<img src="assets/images/9.jpg" alt="Банкетний комплекс Мрія">
+				<img src="assets/images/19.jpg" alt="Банкетний комплекс Мрія">
 
 			</div>
 
@@ -244,97 +244,18 @@
 		</h2>
 
 		<div class="gallery-grid">
-
-			<div class="media-card">
-
-				<img src="assets/images/18.jpg" loading="lazy" alt="Основний зал">
-
-			</div>
-
-			<div class="media-card">
-
-				<img src="assets/images/32.jpg" loading="lazy" alt="Святковий зал">
-
-			</div>
-
-			<div class="media-card">
-
-				<img src="assets/images/50.jpg" loading="lazy" alt="Банкетний зал">
-
-			</div>
-
-			<div class="media-card">
-
-				<img src="assets/images/51.jpg" loading="lazy" alt="Весільний зал">
-
-			</div>
-
-		</div>
-
-	</section>
-
-
-	<!-- WEDDING -->
-
-	<section id="wedding" class="fade-section">
-
-		<h2 class="section-title">
-
-			Весільні події
-
-		</h2>
-
-		<div class="gallery-grid">
-
-			<div class="media-card">
-
-				<img src="assets/images/29.jpg" loading="lazy" alt="Весілля">
-
-			</div>
-
-			<div class="media-card">
-
-				<img src="assets/images/40.jpg" loading="lazy" alt="Весільна церемонія">
-
-			</div>
-
-		</div>
-
-	</section>
-
-
-	<!-- GALLERY -->
-
-	<section id="gallery" class="fade-section">
-
-		<h2 class="section-title">
-
-			Галерея
-
-		</h2>
-
-		<div class="gallery-grid">
-
-			<div class="media-card">
-				<img src="assets/images/21.jpg" loading="lazy">
-			</div>
-
-			<div class="media-card">
-				<img src="assets/images/27.jpg" loading="lazy">
-			</div>
-
-			<div class="media-card">
-				<img src="assets/images/30.jpg" loading="lazy">
-			</div>
-
-			<div class="media-card">
-				<img src="assets/images/35.jpg" loading="lazy">
-			</div>
-
-			<div class="media-card">
-				<img src="assets/images/41.jpg" loading="lazy">
-			</div>
-
+			<div class="media-card"><img src="assets/images/50.jpg" loading="lazy" alt="Основний банкетний зал"></div>
+			<div class="media-card"><img src="assets/images/51.jpg" loading="lazy" alt="Банкетний зал"></div>
+			<div class="media-card"><img src="assets/images/41.jpg" loading="lazy" alt="Святковий зал"></div>
+			<div class="media-card"><img src="assets/images/32.jpg" loading="lazy" alt="Інтер’єр залу"></div>
+			<div class="media-card"><img src="assets/images/35.jpg" loading="lazy" alt="Оформлення залу"></div>
+			<div class="media-card"><img src="assets/images/30.jpg" loading="lazy" alt="Банкетне оформлення"></div>
+			<div class="media-card"><img src="assets/images/27.jpg" loading="lazy" alt="Зал комплексу Мрія"></div>
+			<div class="media-card"><img src="assets/images/21.jpg" loading="lazy" alt="Святкове оформлення залу"></div>
+			<div class="media-card"><img src="assets/images/11.jpg" loading="lazy" alt="Інтер’єр комплексу"></div>
+			<div class="media-card"><img src="assets/images/4.jpg" loading="lazy" alt="Зал для урочистостей"></div>
+			<div class="media-card"><img src="assets/images/5.jpg" loading="lazy" alt="Банкетний простір"></div>
+			<div class="media-card"><img src="assets/images/6.jpg" loading="lazy" alt="Святковий простір"></div>
 		</div>
 
 	</section>
@@ -351,25 +272,15 @@
 		</h2>
 
 		<div class="gallery-grid">
-
-			<div class="media-card">
-
-				<img src="assets/images/1.jpg" loading="lazy">
-
-			</div>
-
-			<div class="media-card">
-
-				<img src="assets/images/7.jpg" loading="lazy">
-
-			</div>
-
-			<div class="media-card">
-
-				<img src="assets/images/8.jpg" loading="lazy">
-
-			</div>
-
+			<div class="media-card"><img src="assets/images/1.jpg" loading="lazy" alt="Дитяча зона"></div>
+			<div class="media-card"><img src="assets/images/2.jpg" loading="lazy" alt="Дитяча зона комплексу"></div>
+			<div class="media-card"><img src="assets/images/4.jpg" loading="lazy" alt="Простір для дітей"></div>
+			<div class="media-card"><img src="assets/images/8.jpg" loading="lazy" alt="Дитячі розваги"></div>
+			<div class="media-card"><img src="assets/images/7.jpg" loading="lazy" alt="Ігрова зона"></div>
+			<div class="media-card"><img src="assets/images/38.jpg" loading="lazy" alt="Зона відпочинку для дітей"></div>
+			<div class="media-card"><img src="assets/images/39.jpg" loading="lazy" alt="Дитячий майданчик"></div>
+			<div class="media-card"><img src="assets/images/48.jpg" loading="lazy" alt="Розваги для дітей"></div>
+			<div class="media-card"><img src="assets/images/49.jpg" loading="lazy" alt="Дитяча локація"></div>
 		</div>
 
 	</section>
@@ -386,25 +297,13 @@
 		</h2>
 
 		<div class="gallery-grid">
-
-			<div class="media-card">
-
-				<img src="assets/images/3.jpg" loading="lazy">
-
-			</div>
-
-			<div class="media-card">
-
-				<img src="assets/images/44.jpg" loading="lazy">
-
-			</div>
-
-			<div class="media-card">
-
-				<img src="assets/images/45.jpg" loading="lazy">
-
-			</div>
-
+			<div class="media-card"><img src="assets/images/3.jpg" loading="lazy" alt="Літня тераса"></div>
+			<div class="media-card"><img src="assets/images/19.jpg" loading="lazy" alt="Тераса комплексу"></div>
+			<div class="media-card"><img src="assets/images/20.jpg" loading="lazy" alt="Літній простір"></div>
+			<div class="media-card"><img src="assets/images/44.jpg" loading="lazy" alt="Літня альтанка"></div>
+			<div class="media-card"><img src="assets/images/45.jpg" loading="lazy" alt="Альтанка комплексу"></div>
+			<div class="media-card"><img src="assets/images/46.jpg" loading="lazy" alt="Відпочинок на терасі"></div>
+			<div class="media-card"><img src="assets/images/5.jpg" loading="lazy" alt="Тераса та альтанка"></div>
 		</div>
 
 	</section>
@@ -420,120 +319,71 @@
 		</h2>
 
 		<div class="gallery-grid">
-
-			<div class="media-card">
-				<img src="assets/images/14.jpg" loading="lazy">
-			</div>
-
-			<div class="media-card">
-				<img src="assets/images/15.jpg" loading="lazy">
-			</div>
-
-			<div class="media-card">
-				<img src="assets/images/17.jpg" loading="lazy">
-			</div>
-
-			<div class="media-card">
-				<img src="assets/images/22.jpg" loading="lazy">
-			</div>
-
-			<div class="media-card">
-				<img src="assets/images/23.jpg" loading="lazy">
-			</div>
-
-			<div class="media-card">
-				<img src="assets/images/24.jpg" loading="lazy">
-			</div>
-
-			<div class="media-card">
-				<img src="assets/images/26.jpg" loading="lazy">
-			</div>
-
-			<div class="media-card">
-				<img src="assets/images/31.jpg" loading="lazy">
-			</div>
-
-			<div class="media-card">
-				<img src="assets/images/33.jpg" loading="lazy">
-			</div>
-
-			<div class="media-card">
-				<img src="assets/images/34.jpg" loading="lazy">
-			</div>
-
+			<div class="media-card"><img src="assets/images/14.jpg" loading="lazy" alt="Страва кухні комплексу"></div>
+			<div class="media-card"><img src="assets/images/15.jpg" loading="lazy" alt="Святкова страва"></div>
+			<div class="media-card"><img src="assets/images/16.jpg" loading="lazy" alt="Банкетне меню"></div>
+			<div class="media-card"><img src="assets/images/17.jpg" loading="lazy" alt="Страва банкетного меню"></div>
+			<div class="media-card"><img src="assets/images/22.jpg" loading="lazy" alt="Кухня комплексу Мрія"></div>
+			<div class="media-card"><img src="assets/images/23.jpg" loading="lazy" alt="Святкове меню"></div>
+			<div class="media-card"><img src="assets/images/24.jpg" loading="lazy" alt="Банкетна страва"></div>
+			<div class="media-card"><img src="assets/images/25.jpg" loading="lazy" alt="Страва для гостей"></div>
+			<div class="media-card"><img src="assets/images/26.jpg" loading="lazy" alt="Страва нашої кухні"></div>
+			<div class="media-card"><img src="assets/images/28.jpg" loading="lazy" alt="Меню комплексу"></div>
+			<div class="media-card"><img src="assets/images/31.jpg" loading="lazy" alt="Частування для гостей"></div>
+			<div class="media-card"><img src="assets/images/33.jpg" loading="lazy" alt="Банкетне частування"></div>
+			<div class="media-card"><img src="assets/images/34.jpg" loading="lazy" alt="Страва святкового меню"></div>
+			<div class="media-card"><img src="assets/images/36.jpg" loading="lazy" alt="Оформлення банкетної страви"></div>
 		</div>
 
 	</section>
 
+
+	<!-- GALLERY -->
+
+	<section id="gallery" class="fade-section">
+		<h2 class="section-title">Галерея</h2>
+		<div class="gallery-grid">
+			<div class="media-card"><img src="assets/images/21.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/27.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/30.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/35.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/41.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/2.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/4.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/5.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/6.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/10.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/11.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/12.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/13.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/16.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/19.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/25.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/28.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/36.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/37.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/39.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/42.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/43.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/46.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/47.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/48.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+			<div class="media-card"><img src="assets/images/49.jpg" loading="lazy" alt="Банкетний комплекс Мрія — фотогалерея"></div>
+		</div>
+	</section>
 
 	<!-- VIDEO GALLERY -->
 
 	<section id="video-gallery" class="fade-section">
 <h2 class="section-title">Відео комплексу</h2>
 <div class="video-grid">
-  <div class="video-card">
-    <iframe src="https://www.youtube.com/embed/kh61ndjhx_Y?rel=0&amp;modestbranding=1" 
-            title="Відео комплексу Мрія" 
-            width="100%" 
-            height="320" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen></iframe>
-  </div>
-  <div class="video-card">
-    <iframe src="https://www.youtube.com/embed/8Uqod3XVL8Q?rel=0&amp;modestbranding=1" 
-            title="Відео комплексу Мрія" 
-            width="100%" 
-            height="320" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen></iframe>
-  </div>
-  <div class="video-card">
-    <iframe src="https://www.youtube.com/embed/DqHaoTaqNmY?rel=0&amp;modestbranding=1" 
-            title="Відео комплексу Мрія" 
-            width="100%" 
-            height="320" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen></iframe>
-  </div>
-  <div class="video-card">
-    <iframe src="https://www.youtube.com/embed/LU29MZ9Jsm4?rel=0&amp;modestbranding=1" 
-            title="Відео комплексу Мрія" 
-            width="100%" 
-            height="320" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen></iframe>
-  </div>
-  <div class="video-card">
-    <iframe src="https://www.youtube.com/embed/G7YziW3inmI?rel=0&amp;modestbranding=1" 
-            title="Відео комплексу Мрія" 
-            width="100%" 
-            height="320" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen></iframe>
-  </div>
-  <div class="video-card">
-    <iframe src="https://www.youtube.com/embed/okYxRBnVxqY?rel=0&amp;modestbranding=1" 
-            title="Відео комплексу Мрія" 
-            width="100%" 
-            height="320" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen></iframe>
-  </div>
-  <div class="video-card">
-    <iframe src="https://www.youtube.com/embed/LFPaJvNmOJ4?rel=0&amp;modestbranding=1" 
-            title="Відео комплексу Мрія" 
-            width="100%" 
-            height="320" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen></iframe>
-  </div>
+  <a class="video-card" href="https://www.youtube.com/watch?v=kh61ndjhx_Y" target="_blank" rel="noopener noreferrer" aria-label="Відкрити відео комплексу Мрія на YouTube"><img src="https://i.ytimg.com/vi/kh61ndjhx_Y/hqdefault.jpg" loading="lazy" alt="Відео комплексу Мрія"><span class="video-play">▶</span><span class="video-link">Дивитися на YouTube ↗</span></a>
+  <a class="video-card" href="https://www.youtube.com/watch?v=8Uqod3XVL8Q" target="_blank" rel="noopener noreferrer" aria-label="Відкрити відео комплексу Мрія на YouTube"><img src="https://i.ytimg.com/vi/8Uqod3XVL8Q/hqdefault.jpg" loading="lazy" alt="Відео комплексу Мрія"><span class="video-play">▶</span><span class="video-link">Дивитися на YouTube ↗</span></a>
+  <a class="video-card" href="https://www.youtube.com/watch?v=DqHaoTaqNmY" target="_blank" rel="noopener noreferrer" aria-label="Відкрити відео комплексу Мрія на YouTube"><img src="https://i.ytimg.com/vi/DqHaoTaqNmY/hqdefault.jpg" loading="lazy" alt="Відео комплексу Мрія"><span class="video-play">▶</span><span class="video-link">Дивитися на YouTube ↗</span></a>
+  <a class="video-card" href="https://www.youtube.com/watch?v=LU29MZ9Jsm4" target="_blank" rel="noopener noreferrer" aria-label="Відкрити відео комплексу Мрія на YouTube"><img src="https://i.ytimg.com/vi/LU29MZ9Jsm4/hqdefault.jpg" loading="lazy" alt="Відео комплексу Мрія"><span class="video-play">▶</span><span class="video-link">Дивитися на YouTube ↗</span></a>
+  <a class="video-card" href="https://www.youtube.com/watch?v=G7YziW3inmI" target="_blank" rel="noopener noreferrer" aria-label="Відкрити відео комплексу Мрія на YouTube"><img src="https://i.ytimg.com/vi/G7YziW3inmI/hqdefault.jpg" loading="lazy" alt="Відео комплексу Мрія"><span class="video-play">▶</span><span class="video-link">Дивитися на YouTube ↗</span></a>
+  <a class="video-card" href="https://www.youtube.com/watch?v=okYxRBnVxqY" target="_blank" rel="noopener noreferrer" aria-label="Відкрити відео комплексу Мрія на YouTube"><img src="https://i.ytimg.com/vi/okYxRBnVxqY/hqdefault.jpg" loading="lazy" alt="Відео комплексу Мрія"><span class="video-play">▶</span><span class="video-link">Дивитися на YouTube ↗</span></a>
+  <a class="video-card" href="https://www.youtube.com/watch?v=LFPaJvNmOJ4" target="_blank" rel="noopener noreferrer" aria-label="Відкрити відео комплексу Мрія на YouTube"><img src="https://i.ytimg.com/vi/LFPaJvNmOJ4/hqdefault.jpg" loading="lazy" alt="Відео комплексу Мрія"><span class="video-play">▶</span><span class="video-link">Дивитися на YouTube ↗</span></a>
 </div>
 </section>
 
@@ -548,19 +398,31 @@
 
 		</h2>
 
-		<form>
+		<form id="booking-form" action="https://formsubmit.co/navov0322@gmail.com" method="POST">
+			<input type="hidden" name="_subject" value="Нова заявка з сайту «Мрія»">
+			<input type="hidden" name="_template" value="table">
+			<input type="hidden" name="_autoresponse" value="Дякуємо за вашу заявку до банкетного комплексу «Мрія». Ми зв’яжемося з вами найближчим часом.">
+			<input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-			<input type="text" placeholder="Ваше ім'я" required>
+			<label class="sr-only" for="booking-name">Ваше ім'я</label>
+			<input id="booking-name" name="name" type="text" placeholder="Ваше ім'я" autocomplete="name" required>
 
-			<input type="tel" placeholder="Телефон" required>
+			<label class="sr-only" for="booking-phone">Телефон</label>
+			<input id="booking-phone" name="phone" type="tel" placeholder="Телефон" autocomplete="tel" inputmode="tel" required>
 
-			<input type="date" required>
+			<label class="sr-only" for="booking-email">Електронна пошта</label>
+			<input id="booking-email" name="email" type="email" placeholder="Ваш email (необов’язково)" autocomplete="email">
 
-			<input type="number" placeholder="Кількість гостей">
+			<label class="sr-only" for="booking-date">Дата події</label>
+			<input id="booking-date" name="date" type="date" required>
 
-			<select>
+			<label class="sr-only" for="booking-guests">Кількість гостей</label>
+			<input id="booking-guests" name="guests" type="number" min="1" max="200" placeholder="Кількість гостей">
 
-				<option>
+			<label class="sr-only" for="booking-event">Тип події</label>
+			<select id="booking-event" name="event" required>
+
+				<option value="" selected disabled>
 					Оберіть тип події
 				</option>
 
@@ -586,9 +448,10 @@
 
 			</select>
 
-			<textarea rows="5" placeholder="Додаткова інформація"></textarea>
+			<label class="sr-only" for="booking-message">Додаткова інформація</label>
+			<textarea id="booking-message" name="message" rows="5" placeholder="Додаткова інформація"></textarea>
 
-			<button type="submit">
+			<button type="submit" id="booking-submit">
 
 				Надіслати заявку
 
@@ -596,12 +459,7 @@
 
 		</form>
 
-		<p class="booking-note">
-
-			Онлайн календар зайнятих дат —
-			буде доповнено.
-
-		</p>
+		<p id="booking-status" class="booking-note" role="status" aria-live="polite">Заявка буде надіслана безпосередньо на електронну пошту комплексу.</p>
 
 	</section>
 
@@ -612,7 +470,7 @@
 
 		<div class="contact-cover">
 
-			<img src="assets/images/20.jpg" alt="Банкетний комплекс Мрія">
+			<img src="assets/images/12.jpg" alt="Банкетний комплекс Мрія — контакти">
 
 		</div>
 
@@ -631,31 +489,13 @@
 
 			</p>
 
-			<p>
+			<p>📞 <a href="tel:+380664905754">+38 (066) 490-57-54</a></p>
 
-				📞 +380664905754
+			<p>📞 <a href="tel:+380952299587">+38 (095) 229-95-87</a></p>
 
-			</p>
+			<p>Instagram: <a href="https://www.instagram.com/banquethallmriia/" target="_blank" rel="noopener noreferrer">@banquethallmriia</a></p>
 
-			<p>
-
-				📞 +380952299587
-
-			</p>
-
-			<p>
-
-				Instagram:
-				@banquethallmriia
-
-			</p>
-
-			<p>
-
-				Google Maps:
-				буде доповнено
-
-			</p>
+			<p>🗺️ <a href="https://maps.app.goo.gl/qt93JhkRhvBD6qRw7" target="_blank" rel="noopener noreferrer">Відкрити точне розташування в Google Maps</a></p>
 
 		</div>
 
@@ -666,13 +506,13 @@
 
 	<div class="floating-buttons">
 
-		<a href="tel:+380664905754" class="float-btn">
+		<a href="tel:+380664905754" class="float-btn" aria-label="Зателефонувати">
 
 			📞
 
 		</a>
 
-		<a href="https://www.instagram.com/banquethallmriia/" target="_blank" class="float-btn">
+		<a href="https://www.instagram.com/banquethallmriia/" target="_blank" rel="noopener noreferrer" class="float-btn" aria-label="Відкрити Instagram">
 
 			📷
 
@@ -708,30 +548,7 @@
 	</footer>
 
 
-	<script>
-
-		const observer =
-			new IntersectionObserver((entries) => {
-
-				entries.forEach(entry => {
-
-					if (entry.isIntersecting) {
-
-						entry.target.classList.add("show");
-
-					}
-
-				});
-
-			}, {
-				threshold: 0.15
-			});
-
-		document
-			.querySelectorAll(".fade-section")
-			.forEach(el => observer.observe(el));
-
-	</script>
+	<script src="script.js" defer></script>
 
 
 </body>

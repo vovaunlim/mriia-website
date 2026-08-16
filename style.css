@@ -602,13 +602,22 @@ margin:auto;
 
 }
 
+.form-intro{margin:-38px 0 34px;text-align:center;color:var(--text);opacity:.78;}
+.form-intro span{color:#b42318;font-weight:800;}
+
 .booking form{
 
 display:grid;
 
-gap:18px;
+gap:22px;
 
 }
+
+.form-field{display:grid;gap:7px;}
+.form-field label{color:var(--text);font-size:16px;font-weight:700;line-height:1.35;}
+.form-field label>span:not(.optional){color:#b42318;}
+.form-field .optional{display:inline-block;margin-left:8px;padding:3px 8px;border-radius:999px;background:rgba(201,168,106,.16);color:var(--gold-dark);font-size:12px;font-weight:700;vertical-align:2px;}
+.form-field small{color:var(--text);font-size:13px;line-height:1.45;opacity:.68;}
 
 .booking input,
 .booking textarea,
@@ -623,6 +632,8 @@ background:var(--card-bg);
 color: var(--text);
 transition:.3s;
 }
+
+.booking input::placeholder,.booking textarea::placeholder{color:var(--text);opacity:.48;}
 
 .booking input:focus,
 .booking textarea:focus,
@@ -871,6 +882,9 @@ translateY(60px);
 
 transition:
 1s ease;
+
+content-visibility:auto;
+contain-intrinsic-size:auto 700px;
 
 }
 

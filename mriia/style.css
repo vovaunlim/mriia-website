@@ -699,8 +699,6 @@ opacity:.7;
 .booking-note.error a{color:inherit;text-decoration:underline;}
 .booking button:disabled{cursor:wait;opacity:.7;transform:none;}
 
-.submission-frame{position:absolute;width:1px;height:1px;border:0;opacity:0;pointer-events:none;}
-
 .thank-you-modal{position:fixed;inset:0;z-index:3000;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.68);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:.3s;}
 .thank-you-modal.is-visible{opacity:1;visibility:visible;}
 .thank-you-card{width:min(100%,520px);padding:clamp(32px,6vw,56px);text-align:center;border:1px solid rgba(201,168,106,.45);border-radius:30px;background:var(--card-bg);color:var(--text);box-shadow:0 30px 90px rgba(0,0,0,.35);transform:translateY(22px) scale(.96);transition:.35s;}
@@ -1179,6 +1177,39 @@ flex-direction:column;
   .media-card:hover,.video-card:hover,.stat-card:hover{transform:none;}
   .media-card:hover img,.video-card:hover img{transform:none;filter:none;}
   .btn:hover,.float-btn:hover,.theme-toggle:hover{transform:none;}
+}
+
+/* Stable mobile layout overrides */
+@media (max-width:768px){
+  *,*::before,*::after{max-width:100%;}
+  html,body{width:100%;overflow-x:hidden;}
+  header{width:100%;box-sizing:border-box;}
+  main,section,footer{width:100%;}
+  section{padding-left:16px;padding-right:16px;}
+  .hero{width:100%;min-height:100dvh;min-height:100svh;}
+  .hero-content{max-width:100%;}
+  .hero-buttons,.hero-buttons .btn{width:100%;}
+  .about,.stats,.gallery-grid,.video-grid,#contacts{width:100%;min-width:0;}
+  .about>* ,.gallery-grid>* ,.video-grid>* ,#contacts>*{min-width:0;max-width:100%;}
+  .media-card,.video-card{margin:0;width:100%;}
+  .media-card img,.video-card img{width:100%;height:100%;}
+  .booking form,.form-field{width:100%;min-width:0;}
+  .booking input,.booking select,.booking textarea,.booking button{display:block;width:100%;max-width:100%;box-sizing:border-box;}
+  .contact-cover{width:100%;margin:0 auto;}
+  .contacts{margin:0;width:100%;box-sizing:border-box;}
+  .floating-buttons{max-width:none;}
+  .call-menu,.thank-you-modal{width:100%;max-width:none;}
+}
+
+@media (max-width:380px){
+  header{padding-left:10px;padding-right:10px;}
+  .logo{font-size:21px;letter-spacing:1.5px;}
+  .menu-toggle,.theme-toggle{width:40px;height:40px;flex-basis:40px;}
+  section{padding-left:12px;padding-right:12px;}
+  .hero{padding-left:12px;padding-right:12px;}
+  .hero h1{font-size:32px;}
+  .hero-badge{font-size:12px;}
+  .contacts,.thank-you-card,.call-menu-card{padding-left:14px;padding-right:14px;}
 }
 
 header{backdrop-filter:blur(14px);background:rgba(0,0,0,.35)!important}

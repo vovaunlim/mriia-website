@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const nav = document.getElementById('main-nav');
   const bookingForm = document.getElementById('booking-form');
+  const thankYouModal = document.getElementById('thank-you-modal');
+  const thankYouHome = document.getElementById('thank-you-home');
+  const callToggle = document.getElementById('call-toggle');
+  const callMenu = document.getElementById('call-menu');
 
   let savedTheme = 'light';
   try { savedTheme = localStorage.getItem('theme') || 'light'; } catch (error) { /* private mode */ }
@@ -29,11 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.setAttribute('aria-label', isOpen ? 'Закрити меню' : 'Відкрити меню');
   });
 
-  nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+  const closeMainMenu = () => {
     nav.classList.remove('is-open');
     menuToggle.classList.remove('is-open');
     menuToggle.setAttribute('aria-expanded', 'false');
-  }));
+    menuToggle.setAttribute('aria-label', 'Відкрити меню');
+  };
+
+  nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMainMenu));
 
   const sections = document.querySelectorAll('.fade-section');
   if ('IntersectionObserver' in window) {
@@ -58,5 +65,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitButton = document.getElementById('booking-submit');
     submitButton.disabled = true;
     submitButton.textContent = 'Надсилаємо…';
+
+    window.setTimeout(() => {
+      bookingForm.reset();
+      submitButton.disabled = false;
+      submitButton.textContent = 'Надіслати заявку';
+      thankYouModal.classList.add('is-visible');
+      thankYouModal.setAttribute('aria-hidden', 'false');
+      thankYouHome.focus();
+
+      window.setTimeout(returnHome, 4000);
+    }, 900);
+  });
+
+  function returnHome() {
+    thankYouModal.classList.remove('is-visible');
+    thankYouModal.setAttribute('aria-hidden', 'true');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window.location.hash) history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+
+  thankYouHome.addEventListener('click', returnHome);
+  thankYouModal.addEventListener('click', (event) => {
+    if (event.target === thankYouModal) returnHome();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && thankYouModal.classList.contains('is-visible')) returnHome();
+    if (event.key === 'Escape') {
+      closeCallMenu();
+      closeMainMenu();
+    }
+  });
+
+  function closeCallMenu() {
+    callMenu.classList.remove('is-visible');
+    callMenu.setAttribute('aria-hidden', 'true');
+    callToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  callToggle.addEventListener('click', () => {
+    const isOpen = callMenu.classList.toggle('is-visible');
+    callMenu.setAttribute('aria-hidden', String(!isOpen));
+    callToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.call-widget')) closeCallMenu();
+    if (!event.target.closest('header')) closeMainMenu();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMainMenu();
   });
 });

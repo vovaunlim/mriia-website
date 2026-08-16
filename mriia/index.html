@@ -534,16 +534,22 @@
 
 
 	<!-- FLOATING BUTTONS -->
+	<div id="call-menu" class="call-menu" role="dialog" aria-modal="true" aria-labelledby="call-menu-title" aria-hidden="true">
+		<div class="call-menu-card">
+			<button id="call-menu-close" type="button" class="call-menu-close" aria-label="Закрити вибір номера">×</button>
+			<div class="call-menu-icon">📞</div>
+			<h2 id="call-menu-title">Оберіть номер телефону</h2>
+			<p>Натисніть на номер, на який бажаєте зателефонувати.</p>
+			<div class="call-options">
+				<a href="tel:+380664905754"><span>Телефон 1</span><strong>+38 (066) 490-57-54</strong></a>
+				<a href="tel:+380952299587"><span>Телефон 2</span><strong>+38 (095) 229-95-87</strong></a>
+			</div>
+		</div>
+	</div>
 
 	<div class="floating-buttons">
 
 		<div class="call-widget">
-			<div id="call-menu" class="call-menu" aria-hidden="true">
-				<p>Оберіть номер</p>
-				<a href="tel:+380664905754">📞 +38 (066) 490-57-54</a>
-				<a href="tel:+380952299587">📞 +38 (095) 229-95-87</a>
-			</div>
-
 		<button id="call-toggle" type="button" class="float-btn" aria-label="Показати номери телефону" aria-expanded="false" aria-controls="call-menu">
 
 			📞

@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const thankYouHome = document.getElementById('thank-you-home');
   const callToggle = document.getElementById('call-toggle');
   const callMenu = document.getElementById('call-menu');
+  const callMenuClose = document.getElementById('call-menu-close');
 
   let savedTheme = 'light';
   try { savedTheme = localStorage.getItem('theme') || 'light'; } catch (error) { /* private mode */ }
@@ -107,10 +108,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const isOpen = callMenu.classList.toggle('is-visible');
     callMenu.setAttribute('aria-hidden', String(!isOpen));
     callToggle.setAttribute('aria-expanded', String(isOpen));
+    if (isOpen) callMenuClose.focus();
+  });
+
+  callMenuClose.addEventListener('click', closeCallMenu);
+  callMenu.addEventListener('click', (event) => {
+    if (event.target === callMenu) closeCallMenu();
   });
 
   document.addEventListener('click', (event) => {
-    if (!event.target.closest('.call-widget')) closeCallMenu();
     if (!event.target.closest('header')) closeMainMenu();
   });
 

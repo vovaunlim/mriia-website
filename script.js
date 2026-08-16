@@ -33,11 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.setAttribute('aria-label', isOpen ? 'Закрити меню' : 'Відкрити меню');
   });
 
-  nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+  const closeMainMenu = () => {
     nav.classList.remove('is-open');
     menuToggle.classList.remove('is-open');
     menuToggle.setAttribute('aria-expanded', 'false');
-  }));
+    menuToggle.setAttribute('aria-label', 'Відкрити меню');
+  };
+
+  nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMainMenu));
 
   const sections = document.querySelectorAll('.fade-section');
   if ('IntersectionObserver' in window) {
@@ -88,7 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && thankYouModal.classList.contains('is-visible')) returnHome();
-    if (event.key === 'Escape') closeCallMenu();
+    if (event.key === 'Escape') {
+      closeCallMenu();
+      closeMainMenu();
+    }
   });
 
   function closeCallMenu() {
@@ -105,5 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('click', (event) => {
     if (!event.target.closest('.call-widget')) closeCallMenu();
+    if (!event.target.closest('header')) closeMainMenu();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMainMenu();
   });
 });

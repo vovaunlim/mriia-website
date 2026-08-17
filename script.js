@@ -4,10 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const nav = document.getElementById('main-nav');
   const bookingForm = document.getElementById('booking-form');
+  const bookingStatus = document.getElementById('booking-status');
   const thankYouModal = document.getElementById('thank-you-modal');
   const thankYouHome = document.getElementById('thank-you-home');
   const callToggle = document.getElementById('call-toggle');
   const callMenu = document.getElementById('call-menu');
+  const callMenuClose = document.getElementById('call-menu-close');
 
   let savedTheme = 'light';
   try { savedTheme = localStorage.getItem('theme') || 'light'; } catch (error) { /* private mode */ }
@@ -61,21 +63,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const today = new Date();
   dateInput.min = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
 
-  bookingForm.addEventListener('submit', () => {
+  bookingForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!bookingForm.reportValidity()) return;
+
     const submitButton = document.getElementById('booking-submit');
     submitButton.disabled = true;
     submitButton.textContent = 'Надсилаємо…';
 
-    window.setTimeout(() => {
+    bookingStatus.className = 'booking-note';
+    bookingStatus.textContent = 'Надсилаємо заявку, будь ласка, зачекайте…';
+
+    const formData = new FormData(bookingForm);
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/navov0322@gmail.com', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: formData
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || result.success === false || result.success === 'false') {
+        throw new Error(result.message || 'Сервіс не прийняв заявку');
+      }
+
       bookingForm.reset();
       submitButton.disabled = false;
       submitButton.textContent = 'Надіслати заявку';
+      bookingStatus.className = 'booking-note success';
+      bookingStatus.textContent = 'Заявку успішно надіслано.';
       thankYouModal.classList.add('is-visible');
       thankYouModal.setAttribute('aria-hidden', 'false');
       thankYouHome.focus();
-
       window.setTimeout(returnHome, 4000);
-    }, 900);
+
+    } catch (error) {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Надіслати заявку';
+      bookingStatus.className = 'booking-note error';
+      bookingStatus.innerHTML = 'Заявку не надіслано. Перевірте інтернет або зателефонуйте: <a href="tel:+380664905754">+38 (066) 490-57-54</a>.';
+    }
   });
 
   function returnHome() {
@@ -107,10 +133,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const isOpen = callMenu.classList.toggle('is-visible');
     callMenu.setAttribute('aria-hidden', String(!isOpen));
     callToggle.setAttribute('aria-expanded', String(isOpen));
+    if (isOpen) callMenuClose.focus();
+  });
+
+  callMenuClose.addEventListener('click', closeCallMenu);
+  callMenu.addEventListener('click', (event) => {
+    if (event.target === callMenu) closeCallMenu();
   });
 
   document.addEventListener('click', (event) => {
-    if (!event.target.closest('.call-widget')) closeCallMenu();
     if (!event.target.closest('header')) closeMainMenu();
   });
 

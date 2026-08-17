@@ -223,7 +223,7 @@ heroZoom 20s linear infinite alternate;
 
 }
 
-.hero-video img{width:100%;height:100%;object-fit:cover;}
+.hero-video img{width:100%;height:100%;object-fit:cover;object-position:center center;}
 
 .hero-overlay{
   position:absolute;
@@ -459,6 +459,8 @@ var(--shadow);
 font-size:18px;
 
 }
+
+.about-content p+p{margin-top:18px;}
 
 .about-content ul{
 
@@ -808,7 +810,9 @@ position:fixed;
 
 right:25px;
 
-bottom:25px;
+top:50%;
+
+transform:translateY(-50%);
 
 display:flex;
 
@@ -816,7 +820,7 @@ flex-direction:column;
 
 gap:15px;
 
-z-index:999;
+z-index:1800;
 
 }
 
@@ -853,7 +857,16 @@ border:0;
 
 cursor:pointer;
 
+position:relative;
+
 }
+
+.float-btn svg{width:28px;height:28px;fill:currentColor;pointer-events:none;}
+.float-phone{background:#c9a86a;}
+.float-instagram{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);}
+.float-facebook{background:#1877f2;}
+.float-label{position:absolute;right:calc(100% + 12px);top:50%;padding:7px 10px;border-radius:8px;background:#171717;color:#fff;font-size:13px;font-weight:700;white-space:nowrap;opacity:0;visibility:hidden;transform:translate(8px,-50%);transition:.2s;pointer-events:none;}
+.float-btn:hover .float-label,.float-btn:focus-visible .float-label{opacity:1;visibility:visible;transform:translate(0,-50%);}
 
 .call-widget{position:relative;}
 .call-menu{position:fixed;inset:0;z-index:2900;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.68);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:.28s;}
@@ -1119,12 +1132,13 @@ border-radius:20px;
   .contacts .section-title{text-align:center;margin-bottom:24px;}
   .contacts p{font-size:17px;overflow-wrap:anywhere;}
 
-  .floating-buttons{right:max(14px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom));gap:10px;}
+  .floating-buttons{top:auto;right:max(14px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom));transform:none;gap:10px;}
   .float-btn{
     width:54px;
     height:54px;
     font-size:22px;
   }
+  .float-label{display:none;}
   .call-menu{padding:14px;}
   .call-menu-card{width:100%;max-width:430px;padding:34px 18px 22px;border-radius:22px;}
   .call-options a{padding:14px;}
